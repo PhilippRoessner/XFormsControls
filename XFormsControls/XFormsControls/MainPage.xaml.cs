@@ -18,7 +18,12 @@ namespace XFormsControls
             set
             {
                 _selectedListItem = value;
+                if (value != null) {
+                    selectedValue = value.val;
+                }
+                
                 OnPropertyChanged();
+                
             }
         }
         private List<MyGloriousItem> _liste;
@@ -27,7 +32,7 @@ namespace XFormsControls
                 return _liste ?? (_liste = neueListeBauen());
             }
         }
-    private double _selectedValue = 25;
+    private double _selectedValue = 25.0;
     public double selectedValue
     {
         get
@@ -38,6 +43,7 @@ namespace XFormsControls
         {
             _selectedValue = value;
             OnPropertyChanged();
+            //NumPad.EventName = value;
         }
     }
         private List<MyGloriousItem> neueListeBauen()
@@ -53,6 +59,10 @@ namespace XFormsControls
         {
             InitializeComponent();
             BindingContext = this;
+        }
+
+        private void Numpad_OnOkayClicked(object sender, EventArgs e) {
+            var x = 2;
         }
     }
     public class MyGloriousItem

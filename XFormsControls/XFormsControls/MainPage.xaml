@@ -4,11 +4,11 @@
              xmlns:local="clr-namespace:XFormsControls"
              
              x:Class="XFormsControls.MainPage">
-             
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>            
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Text="Welcome to Xamarin Forms!" 
            VerticalOptions="Center" 
@@ -41,31 +41,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <local:Numpad Grid.Column="2" Value="{Binding selectedValue}"></local:Numpad>
+            <local:Numpad x:Name="NumPad"  EventName="{Binding selectedValue}" Grid.Column="2" Dezimalstellen="1" OnOkayClicked="Numpad_OnOkayClicked" ></local:Numpad>
 
         </Grid>
     </Grid>
-
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-     
-
-
-        <Grid Grid.Row="1" IsVisible="{Binding vm.ShowData}" RowSpacing="0" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" ></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="1*" ></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <views:DetailsView Grid.Column="{Binding uiSettings.DetailsViewColumn}" BackgroundColor="White"></views:DetailsView>
-            <views:ColumnNavigationView  Grid.Column="1" BackgroundColor="White"></views:ColumnNavigationView>
-
-            <views:EditorView Grid.Column="{Binding uiSettings.EditViewColumn}" BackgroundColor="White" Padding="0"></views:EditorView>
-        </Grid>
-
-    </Grid>-->
 </ContentPage>
