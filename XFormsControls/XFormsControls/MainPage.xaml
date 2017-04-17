@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XFormsControls"
+             
+             x:Class="XFormsControls.MainPage">
+             
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>            
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Text="Welcome to Xamarin Forms!" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListView Grid.Column="1" ItemsSource="{Binding liste}" SelectedItem="{Binding selectedListItem}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical"
+                             Spacing="1"
+                             Margin="5"
+                             Padding="2">
+                                <Label Text="{Binding id, StringFormat='{0}:'}"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="End"
+                         FontAttributes="Bold" />
+                                <Label Text="{Binding val}"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="Start"
+                         FontAttributes="None" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <local:Numpad Grid.Column="2" Value="{Binding selectedValue}"></local:Numpad>
+
+        </Grid>
+    </Grid>
+
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+     
+
+
+        <Grid Grid.Row="1" IsVisible="{Binding vm.ShowData}" RowSpacing="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" ></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <views:DetailsView Grid.Column="{Binding uiSettings.DetailsViewColumn}" BackgroundColor="White"></views:DetailsView>
+            <views:ColumnNavigationView  Grid.Column="1" BackgroundColor="White"></views:ColumnNavigationView>
+
+            <views:EditorView Grid.Column="{Binding uiSettings.EditViewColumn}" BackgroundColor="White" Padding="0"></views:EditorView>
+        </Grid>
+
+    </Grid>-->
+</ContentPage>
